@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdresController;
+use App\Http\Controllers\AdminCompanyController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/', [IndexController::class, 'index']);
+Route::get('admin', [AdminController::class, 'index']);
+
+// Working
+Route::name('admin.')->group(function () {
+    Route::get('companies', [AdminCompanyController::class, 'index'])->name('companies');
+});
+Route::prefix('admin')->group(function () {
+    Route::get('companies', [AdminCompanyController::class, 'index'])->name('companies');
 });
 
-Route::get('/Adres', [AdresController::class, 'index']);
 
-Route::get('foo', function () {
-    return 'Hello World';
-});
+
+// Route::group([/* 'prefix' => 'admin',   */'name' => 'admin.'], function () {
+//     Route::get('companies', [AdminCompanyController::class, 'index'])->name('companies');
+// });
