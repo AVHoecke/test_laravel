@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminCompanyController;
+use App\Http\Controllers\AdminCityController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCompanyController;
+use App\Http\Controllers\AdminVacancyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +26,12 @@ Route::get('admin', [AdminController::class, 'index']);
 
 Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
     Route::get('/companies', [AdminCompanyController::class, 'index'])->name('companies');
-    
+
     // Route::get('company/create', [AdminCompanyController::class, 'create'])->name('company.create');
     // Route::post('company/store', [AdminCompanyController::class, 'store'])->name('company.store');
     // Route::get(
-        // 'company/{id}/edit/',
-        // [AdminCompanyController::class, 'edit']
+    // 'company/{id}/edit/',
+    // [AdminCompanyController::class, 'edit']
     // )->name('company.edit');
     // Route::post(
     //     'company/{id}/update/',
@@ -49,4 +51,9 @@ Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
 
     // FOUND aritsan route:list !
     Route::resource('company', AdminCompanyController::class);
+    
+    Route::get('/cities', [AdminCityController::class, 'index'])->name('cities');
+    Route::resource('city', AdminCityController::class);
+    Route::get('/vacancies', [AdminVacancyController::class, 'index'])->name('vacancies');
+    Route::resource('vacancy', AdminVacancyController::class);
 });

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class City extends Model
 {
     use HasFactory;
 
-    public function vacancies() {
-        return $this->hasMany('App\Models\Vacancy');
+    public function vacancies()
+    {
+        return $this->hasMany('App/models/Vacancy');
     }
 }

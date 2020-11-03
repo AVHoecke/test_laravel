@@ -3,7 +3,11 @@
 <html>
     <body>
         <h1>Hello, Admin</h1>
-            <p>Your available operations are:</p>
-            <a href="<?= route('admin.companies')?>">Companies</a>
+            <p>You can manage:</p>
+            <ul>
+                <li><a href="<?= route('admin.companies')?>">Companies</a></li>
+                <li><a href="<?= route('admin.cities')?>">Cities</a></li>
+                <li><a href="<?= route('admin.vacancies')?>">Vacancies</a></li>
+            </ul>
     </body>
 </html>
