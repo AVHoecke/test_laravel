@@ -22,16 +22,31 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', [IndexController::class, 'index']);
 Route::get('admin', [AdminController::class, 'index']);
 
-// Working
-Route::name('admin.')->group(function () {
-    Route::get('companies', [AdminCompanyController::class, 'index'])->name('companies');
+Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
+    Route::get('/companies', [AdminCompanyController::class, 'index'])->name('companies');
+    
+    // Route::get('company/create', [AdminCompanyController::class, 'create'])->name('company.create');
+    // Route::post('company/store', [AdminCompanyController::class, 'store'])->name('company.store');
+    // Route::get(
+        // 'company/{id}/edit/',
+        // [AdminCompanyController::class, 'edit']
+    // )->name('company.edit');
+    // Route::post(
+    //     'company/{id}/update/',
+    //     [AdminCompanyController::class, 'update']
+    // )->name('company.update');
+    // Route::post(
+    //     'company/{id}/destroy/',
+    //     [AdminCompanyController::class, 'destroy']
+    // )->name('company.destroy');
+
+    // Route::resource(
+    //     'company/{id}', AdminCompanyController::class
+    //     // 'posts' => PostController::class,
+    // )->names([
+    //     '' => 'company.destroy'
+    // ]);
+
+    // FOUND aritsan route:list !
+    Route::resource('company', AdminCompanyController::class);
 });
-Route::prefix('admin')->group(function () {
-    Route::get('companies', [AdminCompanyController::class, 'index'])->name('companies');
-});
-
-
-
-// Route::group([/* 'prefix' => 'admin',   */'name' => 'admin.'], function () {
-//     Route::get('companies', [AdminCompanyController::class, 'index'])->name('companies');
-// });
