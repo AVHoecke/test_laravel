@@ -16,6 +16,7 @@
             <td class="col">Id:</td>
             <td class="col">Title:</td>
             <td class="col">Description:</td>
+            <td class="col">Type:</td>
             <td class="col">City:</td>
         </tr>
         @foreach ($vacancies as $vacancy)
@@ -23,6 +24,7 @@
             <td><?= $vacancy->id ?></td>
             <td><?= $vacancy->title ?></td>
             <td><?= $vacancy->description ?></td>
+            <td><?= $vacancy->vacancyType->name ?></td>
             <td><?= $vacancy->city->name ?></td>
             <td><a href="<?= route('admin.vacancy.edit', $vacancy) ?>">Edit</a></td>
             <td><form method="POST" action="<?= route('admin.vacancy.destroy', $vacancy) ?>">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCityVacancyTable extends Migration
+class CreateVacancyTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateCityVacancyTable extends Migration
      */
     public function up()
     {
-        Schema::create('city_vacancy', function (Blueprint $table) {
+        Schema::create('vacancy_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateCityVacancyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('city_vacancy');
+        Schema::dropIfExists('vacancy_types');
     }
 }

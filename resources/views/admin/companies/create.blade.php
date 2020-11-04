@@ -9,7 +9,7 @@
                     @csrf
                     <label for="companyName">Company name:</label>
                     <input id="companyName" type="text" name="company.name" required=true>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Save</button>
                 </form>
             </li>
         </ul>
