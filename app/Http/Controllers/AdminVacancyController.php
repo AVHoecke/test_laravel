@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Vacancy;
+use App\Models\VacancyType;
 use Illuminate\Http\Request;
 
 class AdminVacancyController extends Controller
@@ -17,7 +18,8 @@ class AdminVacancyController extends Controller
     public function index()
     {
         $vacancies = Vacancy::all();
-        return view('admin.vacancies.index')->with('vacancies', $vacancies);
+        return view('admin.vacancies.index')
+        ->with('vacancies', $vacancies);
     }
 
     /**
@@ -29,7 +31,8 @@ class AdminVacancyController extends Controller
     {
         return view('admin.vacancies.create')
             ->with('cities', City::all())
-            ->with('companies', Company::all());
+            ->with('companies', Company::all())
+            ->with('vacancyTypes', VacancyType::all());
     }
 
     /**
@@ -45,6 +48,7 @@ class AdminVacancyController extends Controller
         $vacancy->description = $request->vacancy_description;
         $vacancy->city_id = $request->vacancy_city_id;
         $vacancy->company_id = $request->vacancy_company_id;
+        $vacancy->vacancy_type_id = $request->vacancy_type_id;
         $vacancy->save();
         return redirect('admin/vacancies');
     }
@@ -69,10 +73,12 @@ class AdminVacancyController extends Controller
     public function edit($id)
     {
         $vacancy = Vacancy::find($id);
+        $vacancyTypes = VacancyType::all();
         return view('admin.vacancies.edit')
             ->with('vacancy', $vacancy)
             ->with('cities', City::all())
-            ->with('companies', Company::all());
+            ->with('companies', Company::all())
+            ->with('vacancyTypes' , $vacancyTypes);
     }
 
     /**
@@ -90,6 +96,7 @@ class AdminVacancyController extends Controller
         $vacancy->title = $request->vacancy_title;
         $vacancy->city_id = $request->vacancy_city_id;
         $vacancy->company_id = $request->vacancy_company_id;
+        $vacancy->vacancy_type_id = $request->vacancy_type_id;
         $vacancy->update();
         return redirect('admin/vacancies');
     }

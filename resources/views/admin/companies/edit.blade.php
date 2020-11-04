@@ -23,7 +23,7 @@
                         value="<?= $company->name?>"
                         required=true
                     >
-                    <button type="submit">Submit</button>
+                    <button type="submit">Save</button>
                 </form>
             </li>
         </ul>

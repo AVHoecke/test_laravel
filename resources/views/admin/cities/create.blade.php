@@ -9,7 +9,7 @@
                     @csrf
                     <label for="cityName">City name:</label>
                     <input id="cityName" type="text" name="city.name" required=true>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Save</button>
                 </form>
             </li>
         </ul>

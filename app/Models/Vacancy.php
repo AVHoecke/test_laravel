@@ -11,11 +11,16 @@ class Vacancy extends Model
     
     public function companies()
     {
-        return $this->belongsTo('App/Models/Company');
+        return $this->belongsTo('App\Models\Company');
     }
 
     public function city()
     {
         return $this->belongsTo('App\Models\City');
+    }
+    
+    public function vacancyType()
+    {
+        return $this->belongsTo('App\Models\VacancyType');
     }
 }
