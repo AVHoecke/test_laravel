@@ -1,16 +1,17 @@
 <!-- View stored in resources/views/admin/cities/index.blade.php -->
-
-<html>
-<body>
+<x-html-5>
+    <x-slot name="title">
+        Cities
+    </x-slot>
     <h1>Cities</h1>
     <ul>
         <li>
             <a href="<?= route('admin.city.create') ?>">Create new city</a>
         </li>
     </ul>
-	@if (count($cities) == 0)
-	<p>There are no cities.</p>
-	@else
+    @if (count($cities) == 0)
+    <p>There are no cities.</p>
+    @else
     <table class="admin-cities-table">
         <tr>
             <td class="col">Id:</td>
@@ -30,4 +31,4 @@
         @endforeach
     </table>
     @endif
-    </html>
+</x-html-5>

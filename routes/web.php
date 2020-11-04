@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AdminCityController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminCompanyController;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/', [IndexController::class, 'index']);
+Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('admin', [AdminController::class, 'index']);
 
 Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
@@ -57,3 +58,4 @@ Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
     Route::get('/vacancies', [AdminVacancyController::class, 'index'])->name('vacancies');
     Route::resource('vacancy', AdminVacancyController::class);
 });
+

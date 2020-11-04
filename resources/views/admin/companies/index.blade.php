@@ -1,7 +1,8 @@
 <!-- View stored in resources/views/admin/companies/index.blade.php -->
-
-<html>
-<body>
+<x-html-5>
+    <x-slot name="title">
+        Companies
+    </x-slot>
     <h1>Companies</h1>
     <ul>
         <li>
@@ -30,5 +31,4 @@
         @endforeach
     </table>
     @endif
-</body>
-</html>
+</x-html-5>

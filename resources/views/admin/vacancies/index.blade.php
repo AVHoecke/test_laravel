@@ -1,8 +1,9 @@
 <!-- View stored in resources/views/admin/vacancies/index.blade.php -->
-
-<html>
-<body>
-    <h1>Vacancies</h1>
+<x-html-5>
+    <x-slot name="title">
+        Vacancies
+    </x-slot>
+    <h1></h1>
     <ul>
         <li>
             <a href="<?= route('admin.vacancy.create') ?>">Create new vacancy</a>
@@ -36,5 +37,4 @@
         @endforeach
     </table>
     @endif
-</body>
-</html>
+</x-html-5>

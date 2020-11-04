@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
-class AppServiceProvider extends ServiceProvider
+class MasterViewServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
@@ -18,12 +18,13 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        View::share('companyName', 'Halloween-vacatures.');
+        // why is this not working:
+        // View::share('companyName', 'Top halloween Vacatures!');
     }
 }
