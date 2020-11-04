@@ -15,7 +15,7 @@
                     hidden=true
                 >
                 <li>
-                    <label for="vacancyTitle">Vacancy title:</label>
+                    <label for="vacancyTitle">Title:</label>
                     <input
                         id="vacancyTitle"
                         type="text"
@@ -25,7 +25,7 @@
                     >
                 </li>
                 <li>
-                    <label for="vacancyDescription">Vacancy description:</label>
+                    <label for="vacancyDescription">Description:</label>
                     <input
                         id="vacancyDescription"
                         type="text"
@@ -35,7 +35,7 @@
                     >
                 </li>
                 <li>
-                    <label for="vacancyType">Vacancy Type:</label>
+                    <label for="vacancyType">Vacancy type:</label>
                     <select id="vacancyType" name="vacancy.type.id">
                         @foreach ($vacancyTypes as $vacancyType)
                             <option value="<?= $vacancyType->id ?>"
@@ -49,7 +49,7 @@
                     </select>
                 </li>
                 <li>
-                    <label for="vacancyCity">Vacancy City:</label>
+                    <label for="vacancyCity">City:</label>
                     <select id="vacancyCity" name="vacancy.city.id">
                         @foreach ($cities as $city)
                         <option value="<?= $city->id ?>"

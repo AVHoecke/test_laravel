@@ -31,7 +31,8 @@ class AdminVacancyController extends Controller
     {
         return view('admin.vacancies.create')
             ->with('cities', City::all())
-            ->with('companies', Company::all());
+            ->with('companies', Company::all())
+            ->with('vacancyTypes', VacancyType::all());
     }
 
     /**
@@ -95,7 +96,7 @@ class AdminVacancyController extends Controller
         $vacancy->title = $request->vacancy_title;
         $vacancy->city_id = $request->vacancy_city_id;
         $vacancy->company_id = $request->vacancy_company_id;
-        $vacancy->type_id = $request->vacancy_type_id;
+        $vacancy->vacancy_type_id = $request->vacancy_type_id;
         $vacancy->update();
         return redirect('admin/vacancies');
     }
