@@ -3,7 +3,7 @@
     <x-slot name="title">
         Vacancies
     </x-slot>
-    <h1></h1>
+    <h1>Vacancies</h1>
     <ul>
         <li>
             <a href="<?= route('admin.vacancy.create') ?>">Create new vacancy</a>
@@ -18,6 +18,7 @@
             <td class="col">Title:</td>
             <td class="col">Description:</td>
             <td class="col">Type:</td>
+            <td class="col">Company:</td>
             <td class="col">City:</td>
         </tr>
         @foreach ($vacancies as $vacancy)
@@ -26,6 +27,7 @@
             <td><?= $vacancy->title ?></td>
             <td><?= $vacancy->description ?></td>
             <td><?= $vacancy->vacancyType->name ?></td>
+            <td><?= $vacancy->company->name ?? '' ?></td>
             <td><?= $vacancy->city->name ?></td>
             <td><a href="<?= route('admin.vacancy.edit', $vacancy) ?>">Edit</a></td>
             <td><form method="POST" action="<?= route('admin.vacancy.destroy', $vacancy) ?>">

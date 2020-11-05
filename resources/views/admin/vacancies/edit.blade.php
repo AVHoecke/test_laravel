@@ -68,7 +68,7 @@
                 <select id="vacancyTitle"name="vacancy.company.id">
                     @foreach ($companies as $company)
                         <option value="<?= $company->id ?>"
-                            @if ($vacancy->company == $company->id)
+                            @if ($vacancy->company->id == $company->id)
                             selected
                             @endif
                         >

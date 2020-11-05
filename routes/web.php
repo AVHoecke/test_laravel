@@ -18,16 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('admin', [AdminController::class, 'index']);
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
 
 Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
     Route::get('/companies', [AdminCompanyController::class, 'index'])->name('companies');
 
+    // ZOMBIES!!!
     // Route::get('company/create', [AdminCompanyController::class, 'create'])->name('company.create');
     // Route::post('company/store', [AdminCompanyController::class, 'store'])->name('company.store');
     // Route::get(
@@ -50,7 +47,7 @@ Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
     //     '' => 'company.destroy'
     // ]);
 
-    // FOUND aritsan route:list !
+    // KILLER MACHINE: aritsan route:list !
     Route::resource('company', AdminCompanyController::class);
     
     Route::get('/cities', [AdminCityController::class, 'index'])->name('cities');

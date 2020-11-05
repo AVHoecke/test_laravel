@@ -11,6 +11,7 @@
     @section('sidebar')
         <nav>
             <a href="<?= route('home')?>">Vacatures</a>
+            <a href="<?= route('admin')?>">Beheer</a>
         </nav>
     @show
     <div class="container">

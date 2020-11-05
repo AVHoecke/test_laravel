@@ -9,7 +9,7 @@ class Vacancy extends Model
 {
     use HasFactory;
     
-    public function companies()
+    public function company()
     {
         return $this->belongsTo('App\Models\Company');
     }
